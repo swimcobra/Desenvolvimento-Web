@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 1000px;
+    height: 200px;
+}
+header img{
+    width: 1000px;
+    height: 200px;
+}
+nav{
+    width: 1000px;
+    height: 100;
+    background-color: rgb(255, 232, 192);
+}
+section{
+    width: 1000px;
+    height: 200px;
+    background-color: rgb(255, 232, 192);
+}
+section img{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+article{
+    width: 1000px;
+    height: 150px;
+    background-color: rgb(255, 232, 192);
+}
+aside{
+    width: 1000px;
+    height: 150px;
+    background-color: rgb(255, 232, 192);
+}
+footer{
+    width: 1000px;
+    height: 200px;
+    background-color: rgb(255, 232, 192);
+}
+footer img{
+    width: 1000px;
+    height: 200px;
+}
