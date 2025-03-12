@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    max-width: 1200px;
+    height: auto;
+    margin: auto;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 200px;
+    background-color: rgb(235 227 224);
+}
+
+nav{
+    width: 100%;
+    background-color: rgb(250 254 222);
+    text-align: center;
+}
+nav li{
+    display: inline-flex;
+    margin: 15px;
+    list-style: none;
+}
+
+footer{
+    background-color:  rgb(235 227 224);
+    height: 200px;
+    display: flex;
+    justify-content: left;
+    padding: 5px;
+}
+
+fieldset{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+label{
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#enviar{
+    background-color: green;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+#limpar{
+    background-color: red;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+textarea{
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    width: 98%;
+    margin: 5px;
+}
+
+#notaSite{
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+}
+
+form{
+    background-color: peachpuff;
+}

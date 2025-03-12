@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contato</title>
+        <link rel="stylesheet" href="Estilos/EstiloContato.css" type="text/css">
+    </head>
+    <body>
+        <header><img src="imagens/sanrio characters.jpg"><img src="imagens/logo.jpg"></header>
+        <nav>
+            <ul>
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Quem Somos.html">Quem Somos</a></li>
+                <li><a href="Produtos.html">Produtos</a></li>
+                <li><a href="Contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <form action="#" method="POST">
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>  
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+            </fieldset>
+            <fieldset>
+                <legend>Informações Aleatórias</legend>
+
+                <label for="nascimento">Data de Nascimento:</label>
+                <input type="date" id="nascimento" name="nascimento">  
+
+                <label for="notaSite">Nota que você da para o Site (1 a 10):</label>
+                <input type="range" id="notaSite" name="notaSite" value="5" min="1" max="10" oninput="rangeValue.innerText=this.value">
+                <p id="rangeValue"></p>
+
+                <label for="opinião">Nos dê sua opinião:</label>
+                <textarea id="opinião" name="opinião" rows="10"></textarea>
+            </fieldset>
+            <button id="enviar" type="submit">Enviar</button>
+            <button id="limpar" type="reset">Limpar</button>
+        </form>
+        <footer>
+            <img src="imagens/sanrio characters.jpg">
+            <p>
+                Rua Inexistente, 403<br>Cidade Inventada Número 3<br>No c# do mundo
+            </p>
+        </footer>
+    </body>
+</html>

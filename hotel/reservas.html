@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="mobile.css">
+
+    <style>
+        .dropdown-content {
+            display: none;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            padding: 10px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content label {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        .dropdown-content input[type="number"] {
+            width: 60px;
+        }
+
+        fieldset{
+            border-color: #E3B845;
+            border-style: solid;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        label{
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        #enviar{
+            background-color: #E3B845;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        #limpar{
+            background-color: white;
+            border-radius: 5px;
+            border-color: #E3B845;
+            border-style: solid;
+            border-width: 1px;
+            padding: 10px;
+            margin: 5px;
+            color: #E3B845;
+        }
+
+        form{
+            max-width: 600px;
+            margin-left: 600px;
+        }
+
+        input{
+            border-radius: 5px;
+            border-color: #E3B845;
+            border-style: solid;
+            height: 30px;
+        }
+
+        button{
+            background-color: #E3B845;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            height: 30px;
+        }
+
+        body{
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #enviar:hover{
+            background-color: #9c8030;
+        }
+
+        #quantHospQuartos:hover{
+            background-color: #9c8030;
+        }
+
+        #limpar:hover{
+            background-color: rgb(231, 225, 225);
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const checkinInput = document.getElementById("checkin");
+            const checkoutInput = document.getElementById("checkout");
+            const adultosInput = document.getElementById("adultos");
+            const quartosInput = document.getElementById("quartos");
+
+
+            // Define a data mínima para o check-in como o dia atual
+            const today = new Date().toISOString().split("T")[0];
+            checkinInput.min = today;
+
+            // Atualiza a data mínima de check-out com base no check-in selecionado
+            checkinInput.addEventListener("change", function() {
+                checkoutInput.min = checkinInput.value;
+            });
+
+            adultosInput.addEventListener("input", function() {
+                quartosInput.max = adultosInput.value; // Atualiza o max de quartos
+                if (quartosInput.value > adultosInput.value) {
+                    quartosInput.value = adultosInput.value; // Ajusta se o valor atual for maior
+                }
+            });
+
+            // Toggle do dropdown
+            const dropdownButton = document.querySelector(".dropdown button");
+            const dropdownContent = document.querySelector(".dropdown-content");
+
+            dropdownButton.addEventListener("click", function(event) {
+                event.stopPropagation(); // Impede o clique de fechar o dropdown
+                dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+            });
+
+            // Fecha o dropdown se o usuário clicar fora dele
+            document.addEventListener("click", function() {
+                dropdownContent.style.display = "none";
+            });
+
+            dropdownContent.addEventListener("click", function(event) {
+                event.stopPropagation(); // Impede que o clique dentro do dropdown feche ele
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <img src="imagens/logoHotel.png" alt="Logo do hotel">
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Sobre</a>
+            <a href="#">Reservas</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+    <form action="#" method="POST">
+        <fieldset>
+            <legend>Reserva</legend>
+            <label for="checkin">Data de Check-in:</label>
+            <input type="date" id="checkin" required>
+
+            <label for="checkout">Data de Check-out:</label>
+            <input type="date" id="checkout" required>
+
+            <div class="dropdown" style="margin: 10px 0 5px;">
+                <button id="quantHospQuartos" type="button">Quantidade de Hospedes e Quartos</button>
+                    <div class="dropdown-content">
+                        <label for="adultos">
+                            Quantidade de Adultos:
+                            <input type="number" id="adultos" name="adultos" min="1" max="" value="1" required>
+                        </label>
+                        <label for="crianças">
+                            Quantidade de Crianças:
+                            <input type="number" id="crianças" name="crianças" min="0" max="" value="0" required>
+                        </label>
+                        <label for="quartos">
+                            Quantidade de Quartos:
+                            <input type="number" id="quartos" name="quartos" min="1" max="" value="1" required>
+                        </label>
+                    </div>
+            </div>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>  
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+        </fieldset>
+        <button id="enviar" type="submit">Enviar</button>
+        <button id="limpar" type="reset">Limpar</button>
+    </form>
+</body>
+<footer style="margin-top: auto;">
+    <p>Site criado apenas para estudo pessoal.</p>
+</footer>
+</html>
